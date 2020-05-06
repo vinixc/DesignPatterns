@@ -1,4 +1,4 @@
-package br.com.design.patterns.util;
+package br.com.design.patterns.descontos;
 
 import br.com.design.patterns.model.Orcamento;
 
