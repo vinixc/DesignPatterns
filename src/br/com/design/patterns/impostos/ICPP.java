@@ -3,6 +3,12 @@ package br.com.design.patterns.impostos;
 import br.com.design.patterns.model.Orcamento;
 
 public class ICPP extends TemplateDeImpostoCondicional{
+	
+	public ICPP() {}
+	
+	public ICPP(Imposto imposto) {
+		super(imposto);
+	}
 
 	@Override
 	public double minimaTaxacao(Orcamento orcamento) {

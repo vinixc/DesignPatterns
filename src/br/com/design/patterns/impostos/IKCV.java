@@ -4,6 +4,12 @@ import br.com.design.patterns.model.Item;
 import br.com.design.patterns.model.Orcamento;
 
 public class IKCV extends TemplateDeImpostoCondicional{
+	
+	public IKCV() {}
+	
+	public IKCV(Imposto outroImposto) {
+		super(outroImposto);
+	}
 
 	@Override
 	public double minimaTaxacao(Orcamento orcamento) {

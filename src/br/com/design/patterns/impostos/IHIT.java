@@ -7,7 +7,14 @@ import br.com.design.patterns.model.Item;
 import br.com.design.patterns.model.Orcamento;
 
 public class IHIT extends TemplateDeImpostoCondicional{
-
+	
+	public IHIT() {}
+	
+	public IHIT(Imposto outroImposto)
+	{
+		super(outroImposto);
+	}
+	
 	@Override
 	protected double minimaTaxacao(Orcamento orcamento) {
 		return (orcamento.getValor() * 0.01) * orcamento.getItens().size();
