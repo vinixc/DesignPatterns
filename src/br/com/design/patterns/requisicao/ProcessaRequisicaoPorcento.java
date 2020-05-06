@@ -7,6 +7,10 @@ public class ProcessaRequisicaoPorcento implements ProcessaRequisicao{
 
 	private ProcessaRequisicao proxima;
 
+	public ProcessaRequisicaoPorcento(ProcessaRequisicao proxima) {
+		this.proxima = proxima;
+	}
+
 	@Override
 	public String processa(FormatoRequisicao formato, ContaBancaria conta) {
 		if(formato.equals(FormatoRequisicao.PORCENTO)) {

@@ -11,14 +11,10 @@ public class TrataRequisicao {
 	
 	public String processaRequisicao(Requisicao requisicao) {
 		
-		ProcessaRequisicao r1 = new ProcessaRequisicaoXML();
-		ProcessaRequisicao r2 = new ProcessaRequisicaoCSV();
-		ProcessaRequisicao r3 = new ProcessaRequisicaoPorcento();
 		ProcessaRequisicao r4 = new ProcessaNenhumaRequisicao();
-		
-		r1.proximo(r2);
-		r2.proximo(r3);
-		r3.proximo(r4);
+		ProcessaRequisicao r3 = new ProcessaRequisicaoPorcento(r4);
+		ProcessaRequisicao r2 = new ProcessaRequisicaoCSV(r3);
+		ProcessaRequisicao r1 = new ProcessaRequisicaoXML(r2);
 		
 		return r1.processa(requisicao.getFormato(), requisicao.getConta());
 	}

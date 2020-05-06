@@ -7,6 +7,10 @@ public class ProcessaRequisicaoCSV implements ProcessaRequisicao{
 
 	private ProcessaRequisicao proxima;
 
+	public ProcessaRequisicaoCSV(ProcessaRequisicao proxima) {
+		this.proxima = proxima;
+	}
+
 	@Override
 	public String processa(FormatoRequisicao formato, ContaBancaria conta) {
 		if(formato.equals(FormatoRequisicao.CSV)) {

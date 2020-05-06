@@ -11,7 +11,7 @@ public class TestaRequisicao {
 		
 		TrataRequisicao trataRequest = new TrataRequisicao();
 		
-		String processo = trataRequest.processaRequisicao(new Requisicao(FormatoRequisicao.PORCENTO, new ContaBancaria(500.0, "Vinicius")));
+		String processo = trataRequest.processaRequisicao(new Requisicao(FormatoRequisicao.XML, new ContaBancaria(500.0, "Vinicius")));
 	
 		System.out.println(processo);
 	}

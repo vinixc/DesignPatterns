@@ -6,6 +6,10 @@ import br.com.design.patterns.model.ContaBancaria;
 public class ProcessaRequisicaoXML implements ProcessaRequisicao{
 
 	private ProcessaRequisicao proxima;
+	
+	public ProcessaRequisicaoXML(ProcessaRequisicao proxima) {
+		this.proxima = proxima;
+	}
 
 	@Override
 	public String processa(FormatoRequisicao formato, ContaBancaria conta) {
