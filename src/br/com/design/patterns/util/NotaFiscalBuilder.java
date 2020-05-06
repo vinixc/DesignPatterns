@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.design.patterns.model.ItemDaNota;
 import br.com.design.patterns.model.NotaFiscal;
+import br.com.design.patterns.observer.AcaoAposGerarNotaFiscal;
 
 public class NotaFiscalBuilder {
 	
@@ -15,11 +16,14 @@ public class NotaFiscalBuilder {
 	private double impostos;
 	private String observacao;
 	
+	private List<AcaoAposGerarNotaFiscal> todasAcoesASeremExecutada;
+	
 	private List<ItemDaNota> todosItens = new ArrayList<>();
 	private LocalDate data;
 	
 	public NotaFiscalBuilder() {
 		this.data = LocalDate.now();
+		todasAcoesASeremExecutada = new ArrayList<>();
 	}
 
 	public NotaFiscalBuilder paraEmpresa(String razaoSocial) {
@@ -49,8 +53,15 @@ public class NotaFiscalBuilder {
 		return this;
 	}
 	
-	public NotaFiscal controi() {
-		return new NotaFiscal(razaoSocial, comCnpj, data, valorBruto, impostos, todosItens, observacao);
+	public void adicionaAcao(AcaoAposGerarNotaFiscal acao) {
+		this.todasAcoesASeremExecutada.add(acao);
 	}
-
+	
+	public NotaFiscal controi() {
+		NotaFiscal notaFiscal = new NotaFiscal(razaoSocial, comCnpj, data, valorBruto, impostos, todosItens, observacao);
+		
+		todasAcoesASeremExecutada.stream().forEach(a-> a.executa(notaFiscal));
+		
+		return notaFiscal;
+	}
 }
