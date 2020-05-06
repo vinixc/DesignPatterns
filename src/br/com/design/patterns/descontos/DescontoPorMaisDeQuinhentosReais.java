@@ -2,19 +2,24 @@ package br.com.design.patterns.descontos;
 
 import br.com.design.patterns.model.Orcamento;
 
-public class DescontoPorMaisDeQuinhentosReais  implements Desconto{
+public class DescontoPorMaisDeQuinhentosReais  extends TemplateDeDesconto{
 	
-	private Desconto proximo;
-
-	public double desconta(Orcamento orcamento) {
-		if(orcamento.getValor() > 500.0) {
-			return orcamento.getValor() * 0.07;
-		}
-		return proximo.desconta(orcamento);
+	public DescontoPorMaisDeQuinhentosReais() {
+		this.proximoDesconto = new DescontoPorVendaCasada();
 	}
 
 	@Override
-	public void setProximo(Desconto desconto) {
-		this.proximo = desconto;
+	protected double proximoDesconto(Orcamento orcamento) {
+		return proximoDesconto.desconta(orcamento);
+	}
+
+	@Override
+	protected double desconto(Orcamento orcamento) {
+		return orcamento.getValor() * 0.07;
+	}
+
+	@Override
+	protected boolean utilizaDesconto(Orcamento orcamento) {
+		return orcamento.getValor() > 500.0;
 	}
 }
