@@ -2,7 +2,7 @@ package br.com.design.patterns.impostos;
 
 import br.com.design.patterns.model.Orcamento;
 
-public abstract class TemplateDeImpostoCondicional implements Imposto{
+public abstract class TemplateDeImpostoCondicional extends Imposto{
 
 	@Override
 	public final double calcula(Orcamento orcamento) {
