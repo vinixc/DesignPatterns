@@ -4,8 +4,16 @@ import br.com.design.patterns.model.Orcamento;
 
 public class EmAprovacao implements EstadoDeUmOrcamento{
 	
+	private boolean descontoAprovado = false;
+	
 	public void aplicaDescontoExtra(Orcamento orcamento) {
-		orcamento.valor -= orcamento.valor * 0.05;
+		if(!descontoAprovado) {
+			orcamento.valor -= orcamento.valor * 0.05;
+			descontoAprovado = true;
+		}
+		else {
+			throw new RuntimeException("Esse desconto já foi aplicado.");
+		}
 	}
 
 	@Override
