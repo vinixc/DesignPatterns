@@ -17,6 +17,10 @@ public class NotaFiscalBuilder {
 	
 	private List<ItemDaNota> todosItens = new ArrayList<>();
 	private LocalDate data;
+	
+	public NotaFiscalBuilder() {
+		this.data = LocalDate.now();
+	}
 
 	public NotaFiscalBuilder paraEmpresa(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
@@ -28,7 +32,7 @@ public class NotaFiscalBuilder {
 		return this;
 	}
 	
-	public NotaFiscalBuilder comItem(ItemDaNota item) {
+	public NotaFiscalBuilder com(ItemDaNota item) {
 		todosItens.add(item);
 		valorBruto += item.getValor();
 		impostos += item.getValor() * 0.05;
@@ -40,8 +44,8 @@ public class NotaFiscalBuilder {
 		return this;
 	}
 	
-	public NotaFiscalBuilder comData() {
-		this.data = LocalDate.now();
+	public NotaFiscalBuilder comData(LocalDate data) {
+		this.data = data;
 		return this;
 	}
 	
