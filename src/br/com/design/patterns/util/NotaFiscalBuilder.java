@@ -2,6 +2,7 @@ package br.com.design.patterns.util;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import br.com.design.patterns.model.ItemDaNota;
@@ -24,6 +25,11 @@ public class NotaFiscalBuilder {
 	public NotaFiscalBuilder() {
 		this.data = LocalDate.now();
 		todasAcoesASeremExecutada = new ArrayList<>();
+	}
+	
+	public NotaFiscalBuilder(Collection<AcaoAposGerarNotaFiscal> acoes) {
+		this.data = LocalDate.now();
+		todasAcoesASeremExecutada = (List<AcaoAposGerarNotaFiscal>) acoes;
 	}
 
 	public NotaFiscalBuilder paraEmpresa(String razaoSocial) {
