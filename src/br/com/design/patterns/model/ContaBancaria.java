@@ -14,6 +14,7 @@ import javax.xml.namespace.QName;
 import com.sun.xml.internal.txw2.annotation.XmlElement;
 
 import br.com.design.patterns.investimentos.Investimento;
+import br.com.design.patterns.model.conta.ContaPositiva;
 
 @XmlElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -26,15 +27,21 @@ public class ContaBancaria {
 	
 	private String nome;
 	
+	private EstadoConta estadoConta;
+	
 	public ContaBancaria(double saldo) {
 		this.saldo = saldo;
 		this.setInvestido(0.0);
+		estadoConta = new ContaPositiva();
+		estadoConta.podeFicarPositiva(this);
 	}
 	
 	public ContaBancaria(double saldo, String nome) {
 		this.saldo = saldo;
 		this.setInvestido(0.0);
 		this.nome = nome;
+		estadoConta = new ContaPositiva();
+		estadoConta.podeFicarPositiva(this);
 	}
 	
 	public ContaBancaria(double saldo, LocalDate dataAbertura, String nome) {
@@ -42,6 +49,8 @@ public class ContaBancaria {
 		this.investido = 0.0;
 		this.dataAbertura = dataAbertura;
 		this.nome = nome;
+		estadoConta = new ContaPositiva();
+		estadoConta.podeFicarPositiva(this);
 	}
 
 	public void investir(double valor, Investimento investimento) {
@@ -56,6 +65,14 @@ public class ContaBancaria {
 		this.saldo += lucro;
 		
 		System.out.println(String.format("LUCRO DE %s REAIS", lucro));
+	}
+	
+	public void saca(double value) {
+		estadoConta.saca(this, value);
+	}
+	
+	public void deposita(double value) {
+		estadoConta.deposita(this, value);
 	}
 
 	public double getSaldo() {
@@ -156,6 +173,14 @@ public class ContaBancaria {
 	public String toString() {
 		return "ContaBancaria [saldo=" + saldo + ", investido=" + investido + ", dataAbertura=" + dataAbertura
 				+ ", nome=" + nome + "]";
+	}
+
+	public EstadoConta getEstadoConta() {
+		return estadoConta;
+	}
+
+	public void setEstadoConta(EstadoConta estadoConta) {
+		this.estadoConta = estadoConta;
 	}
 	
 	
