@@ -1,4 +1,4 @@
-package br.com.design.patterns.pt1;
+package br.com.design.patterns.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

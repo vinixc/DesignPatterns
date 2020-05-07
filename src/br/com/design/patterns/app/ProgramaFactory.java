@@ -1,10 +1,12 @@
-package br.com.design.patterns.pt1;
+package br.com.design.patterns.app;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import br.com.design.patterns.factory.ConnectionFactory;
 
-public class Programa {
+
+public class ProgramaFactory {
 
 	public static void main(String[] args) throws SQLException {
 		
