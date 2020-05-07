@@ -15,19 +15,33 @@ public class ProgramaNotasMusicas {
 		NotasMusicais notas = new NotasMusicais();
 		
 		List<Nota> musica = Arrays.asList(
-				notas.pega("mi"), //E
-				notas.pega("si"), //B
-				notas.pega("sol"),//G
-				notas.pega("re"), //D
-				notas.pega("la"), //A 
-				notas.pega("mi"),  //E
-				
-				notas.pega("mi"), //E
-				notas.pega("si"), //B
-				notas.pega("sol"),//G
-				notas.pega("re"), //D
-				notas.pega("la"), //A 
-				notas.pega("mi") //E
+				notas.pega("do"),    
+	            notas.pega("re"),    
+	            notas.pega("mi"),    
+	            notas.pega("fa"),    
+	            notas.pega("fa"),    
+	            notas.pega("fa"),    
+
+	            notas.pega("do"),    
+	            notas.pega("re"),    
+	            notas.pega("do"),    
+	            notas.pega("re"),    
+	            notas.pega("re"),    
+	            notas.pega("re"),
+
+	            notas.pega("do"),    
+	            notas.pega("sol"),    
+	            notas.pega("fa"),    
+	            notas.pega("mi"),    
+	            notas.pega("mi"),    
+	            notas.pega("mi"),
+
+	            notas.pega("do"),    
+	            notas.pega("re"),    
+	            notas.pega("mi"),    
+	            notas.pega("fa"),    
+	            notas.pega("fa"),    
+	            notas.pega("fa")
 
 		);
 		
