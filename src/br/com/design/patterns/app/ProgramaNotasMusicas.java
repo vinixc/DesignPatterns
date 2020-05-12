@@ -16,6 +16,8 @@ public class ProgramaNotasMusicas {
 		
 		List<Nota> musica = Arrays.asList(
 				notas.pega("do"),    
+				notas.pega("doSustenido"),    
+	            notas.pega("reSustenido"),    
 	            notas.pega("re"),    
 	            notas.pega("mi"),    
 	            notas.pega("fa"),    
