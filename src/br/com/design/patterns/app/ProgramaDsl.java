@@ -22,20 +22,47 @@ public class ProgramaDsl {
 		
 		Expressao raizQuadrada = new RaizQuadrada(new Numero(16));
 		
+		
+		Expressao maluca = new Soma(
+				new Numero(5),
+				new Multiplicacao(
+						new Soma(
+								new Multiplicacao(
+										new Subtracao(
+												new Soma(
+														new Numero(54),
+														new Numero(12)),
+												new Numero(34)),
+										new Numero(4)),
+								new Numero(40)),
+						new Divisao(
+								new Numero(12),
+								new RaizQuadrada(
+										new Numero(9))))
+				);
+		Impressora impressora = new Impressora();
+		
+		maluca.aceita(impressora);
+		System.out.println("");
+		System.out.println(maluca.avalia());
+		
 		int resultSoma = soma.avalia();
 		int resultMult = multiplicacao.avalia();
 		int resultDiv = divisao.avalia();
 		int resultQuadrada = raizQuadrada.avalia();
 		
-		System.out.println(resultSoma);
-		System.out.println(resultMult);
-		System.out.println(resultDiv);
-		System.out.println(resultQuadrada);
+//		System.out.println(resultSoma);
+//		System.out.println(resultMult);
+//		System.out.println(resultDiv);
+//		System.out.println(resultQuadrada);
 		
 		
-		Impressora impressora = new Impressora();
 		
-		soma.aceita(impressora);
+//		soma.aceita(impressora);
+		
+		System.out.println("");
+		
+//		multiplicacao.aceita(impressora);
 	}
 
 }
