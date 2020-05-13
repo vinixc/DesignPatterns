@@ -7,6 +7,7 @@ import br.com.design.patterns.model.Numero;
 import br.com.design.patterns.model.RaizQuadrada;
 import br.com.design.patterns.model.Soma;
 import br.com.design.patterns.model.Subtracao;
+import br.com.design.patterns.util.Impressora;
 
 public class ProgramaDsl {
 	
@@ -30,6 +31,11 @@ public class ProgramaDsl {
 		System.out.println(resultMult);
 		System.out.println(resultDiv);
 		System.out.println(resultQuadrada);
+		
+		
+		Impressora impressora = new Impressora();
+		
+		soma.aceita(impressora);
 	}
 
 }
